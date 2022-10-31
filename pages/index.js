@@ -52,7 +52,7 @@ export default function Home() {
       <Divider variant='overline' sx={{ fontVariant:"all-small-caps", fontSize:20, fontWeight:1, color:"gray" }}>
           Education
       </Divider>
-     <Card sx={{ display: 'flex', margin:2, alignContent: 'space-evenly', maxWidth:600, height:110, alignSelf:'center' }}>
+     <Card sx={{ display: 'flex', margin:2, alignContent: 'space-evenly', maxWidth:600, alignSelf:'center' }}>
       
         <CardContent >
           <Typography  variant="h6" fontWeight={2}>
@@ -66,7 +66,7 @@ export default function Home() {
       <CardMedia
         component="img"
         height="auto"
-        sx={{ width: 100}}
+        sx={{ width: {xs:125, sm:100}}}
         image={UmImg.src}
         alt="University of Michigan"
       />
@@ -200,7 +200,10 @@ const items = [
   },
   {
     name: "University of Michigan",
-    description: ['• Utilized AWS tools to provide call center metrics and automation, including a call volume dashboard, Slack alerts, intelligent call routing with Amazon Lex, and holiday calendar with DynamoDB/Lambda'],
+    description: ['• Backend development of a call volume dashboard using AWS and Google Sheets APIs',
+    '• Prototyped intelligent call routing system using Amazon Lex, iteratively testing and revising to improve understanding of customer intent',
+    '• Created a DynamoDB database, web interface, and Python script to dynamically check for call center holiday closures', 
+    '• Designed alert system to monitor service metrics and output to Slack'],
     title: 'Service Center Developer'
 }
 ]
