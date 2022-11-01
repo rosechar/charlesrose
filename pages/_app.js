@@ -4,35 +4,28 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import { CssBaseline, createTheme, ThemeProvider } from "@mui/material";
-import { CacheProvider, EmotionCache } from '@emotion/react';
-import createCache from '@emotion/cache';
 import React from 'react';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 
-const createEmotionCache = () => {
-  return createCache({ key: 'css', prepend: true });
-};
+function CharlesRose({ Component, pageProps }) {
+  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
 
-const lightThemeOptions = createTheme({
-  palette: {
-    mode: 'light',
-  },
-});
-
-const clientSideEmotionCache = createEmotionCache();
-
-const lightTheme = createTheme(lightThemeOptions);
-
-const CharlesRose = (props) => {
-  const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
-  return (
-    <CacheProvider value={emotionCache}>
-      <ThemeProvider theme={lightTheme}>
-        <CssBaseline />
-          <Component {...pageProps} />
-      </ThemeProvider>
-    </CacheProvider>
+  const theme = React.useMemo(
+    () =>
+      createTheme({
+        palette: {
+          mode: prefersDarkMode ? 'dark' : 'light',
+        },
+      }),
+    [prefersDarkMode],
   );
-};
+  return (
+  <ThemeProvider theme={theme}>
+  <CssBaseline />
+  <Component {...pageProps} />
+  </ThemeProvider>
+  )
+}
 
 export default CharlesRose
