@@ -42,14 +42,14 @@ export default function Home() {
           </Typography>
           </Stack>
           <Box >
-      <ButtonGroup  variant="text" orientation="vertical" sx={{fontSize:{xs: "small", md:"medium"}}}>
+      <ButtonGroup  variant="text" orientation="vertical">
         <Button size="small" href="https://www.linkedin.com/in/charles-rose-2020/">LinkedIn</Button>
         <Button size="small" href="https://github.com/rosechar">Github</Button>
       </ButtonGroup>
       </Box>
      </Stack>
      <Stack>
-      <Divider variant='overline' sx={{ fontVariant:"all-small-caps", fontSize:20, fontWeight:1, color:"gray" }}>
+      <Divider variant='overline' sx={{ fontSize:20, fontWeight:1, color:"gray" }}>
           Education
       </Divider>
      <Card sx={{ display: 'flex', margin:2, alignContent: 'space-evenly', maxWidth:600, alignSelf:'center' }}>
@@ -71,73 +71,45 @@ export default function Home() {
         alt="University of Michigan"
       />
     </Card>
-    <Divider variant='overline' sx={{ fontVariant:"all-small-caps", fontSize:20, fontWeight:1, color:"gray" }}>
+    <Divider variant='overline' sx={{ fontSize:20, fontWeight:1, color:"gray" }}>
           Work History
       </Divider>
-      <Box pl={{xs:3,md:20}} pr={{xs:3,md:20}} pt={2}>
+      <Box pl={{xs:3,md:10,lg:30}} pr={{xs:3,md:10,lg:30}} pt={2}>
       <Carousel 
                 {...DefaultSettings}
-                sx={{ height:{xs:350, sm:250}}}
+                sx={{ height:{xs:390, sm:230}}}
             >
                 {
-                    items.map((item, index) => {
+                    workItems.map((item, index) => {
                         return <Work item={item} key={index} />
                     })
                 }
             </Carousel>
       </Box>
-    <Divider variant='overline' sx={{ fontVariant:"all-small-caps",padding:2, fontSize:20, fontWeight:1, color:"gray" }}>
+    <Divider variant='overline' sx={{ padding:2, fontSize:20, fontWeight:1, color:"gray" }}>
           Projects
       </Divider>
       <Stack spacing={2} pb={2} direction={{xs:"column", md:"row"}} sx={{ justifyContent: "space-evenly", alignItems:"center" }}>
-      <Card sx={{ maxWidth: 300 }}>
+        {projects.map((project) => {
+          return (
+          <Card sx={{ maxWidth: 300 }} key={project.name}>
           <CardContent>
             <Typography variant="h5" color="text.secondary" component="div">
-              Focus Optical
+              {project.name}
             </Typography>
             <Typography sx={{ mb: 1.5 }} color="text.secondary">
-              Local optomotrist/eyeglass shop
+              {project.subtitle}
             </Typography>
-            <Typography variant="body2">
-              Built and deployed customer facing website using React, Next.js, Material UI, and Vercel
+            <Typography variant="body2"  fontWeight={1}>
+              {project.description}
             </Typography>
           </CardContent>
           <CardActions>
-            <Button size="small" href="https://focusoptical.vercel.app">Visit site</Button>
+            <Button size="small" href={project.href}>Visit site</Button>
           </CardActions>
         </Card>
-        <Card sx={{ maxWidth: 300 }}>
-          <CardContent>
-            <Typography variant="h5" color="text.secondary" component="div">
-              Clean King
-            </Typography>
-            <Typography sx={{ mb: 1.5 }} color="text.secondary">
-              Car dealership and detail shop
-            </Typography>
-            <Typography variant="body2">
-              Built and deployed customer facing site with scheduling and admin interface using React, Next.js, Material UI, DynamoDB, Cognitio, and Vercel
-            </Typography>
-          </CardContent>
-          <CardActions>
-            <Button size="small" href="https://cleanking.vercel.app">Visit site</Button>
-          </CardActions>
-        </Card>
-        <Card sx={{ maxWidth: 300 }}>
-          <CardContent>
-            <Typography variant="h5" color="text.secondary" component="div">
-              IIMD
-            </Typography>
-            <Typography sx={{ mb: 1.5 }} color="text.secondary">
-              Immigrant rights organization
-            </Typography>
-            <Typography variant="body2">
-              Volunteer consulting and development with Wordpress from 2020-21
-            </Typography>
-          </CardContent>
-          <CardActions>
-            <Button size="small" href="https://iimd.org">Visit site</Button>
-          </CardActions>
-        </Card>
+        )
+        })}
       </Stack>
       
      </Stack>
@@ -155,7 +127,7 @@ function Work({item}) {
           <Typography variant='body1' fontStyle="italic" >{item.title}</Typography>
           {item.description.map((d) => {
             return (
-              <Typography key={d}  textAlign="left" variant='body2' > {d} </Typography>
+              <Typography  key={d} fontWeight={1} textAlign="left" variant='body2' > {d} </Typography>
             )
           })}
         </Stack>
@@ -164,7 +136,28 @@ function Work({item}) {
   )
 }
 
-const items = [
+const projects = [
+  {
+    name: "Focus Optical",
+    subtitle: "Local optometrist/eyeglass shop",
+    description: "Built and deployed customer facing website using React, Next.js, Material UI, and Vercel",
+    href:"https://focusoptical.vercel.app/"
+  },
+  {
+    name: "Clean King",
+    subtitle: "Car detail shop",
+    description: "Built and deployed customer facing site with appointment scheduling and admin interface using React, Next.js, Material UI, DynamoDB, Cognitio, and Vercel",
+    href:"https://cleanking.vercel.app/"
+  },
+  {
+    name: "IIMD",
+    subtitle: "Immigrant rights organization",
+    description: "Volunteer consulting and development with Wordpress from 2020-21",
+    href:"https://www.iimd.org/"
+  }
+]
+
+const workItems = [
   {
       name: "Domino's Pizza",
       description: ['• Implemented endpoint to abandon invalid carts as part of a batch process, resolving a bug that impacted store operations and required manual dev intervention',
