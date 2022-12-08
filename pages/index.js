@@ -77,7 +77,7 @@ export default function Home() {
       <Box pl={{xs:3,md:10,lg:30}} pr={{xs:3,md:10,lg:30}} pt={2}>
       <Carousel 
                 {...DefaultSettings}
-                sx={{ height:{xs:390, sm:230}}}
+                sx={{ height:{xs:500, sm:275}}}
             >
                 {
                     workItems.map((item, index) => {
@@ -127,7 +127,7 @@ function Work({item}) {
           <Typography variant='body1' fontStyle="italic" >{item.title}</Typography>
           {item.description.map((d) => {
             return (
-              <Typography  key={d} fontWeight={1} textAlign="left" variant='body2' > {d} </Typography>
+              <Typography  key={d} fontWeight={1} textAlign="left" variant='body1' > {d} </Typography>
             )
           })}
         </Stack>
