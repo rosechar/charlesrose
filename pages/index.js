@@ -159,17 +159,18 @@ const projects = [
 
 const workItems = [
   {
+    name: "Domino's Pizza",
+    description: ['• Develop and execute a test plan for a cloud-based payment processing service, outlining test scenarios and automating API testing with Java/Maven/Cucumber',
+  '• Execute functional and regression testing of dominos.com in different environments–creating test cases for new features, identifying bugs, and helping facilitate the release of new national offers and campaigns',
+  '• Work with fellow QA engineers to develop an automated regression test suite for an internal web application utilizing Webdriver.io and Applitools visual AI, reducing the amount of required manual testing '],
+    title: 'Web QA Engineer'
+  },
+  {
       name: "Domino's Pizza",
       description: ['• Implemented endpoint to abandon invalid carts as part of a batch process, resolving a bug that impacted store operations and required manual dev intervention',
       '• Provided on-call support to production environments during pilot roll-out of new store system platform, identifying build issues, fixing bugs, and dynamically providing stopgap measures',
       '• Facilitated the depreciation process of a legacy API, removing client dependencies and old code, thus reducing complexity and improving maintainability of codebase'],
       title: 'Store System .NET Developer'
-  },
-  {
-      name: "Quicken Loans",
-      description: ['• Built endpoint in Loan Origination .NET Core API to expose banker’s IDs to other systems',
-      '• Team based development of an Angular based web tool for managing schemas used in the document ingestion process, allowing scalability for banker’s accepting client’s document'],
-      title: 'Software Engineer Intern'
   },
   {
     name: "Domino's Pizza",
@@ -179,18 +180,17 @@ const workItems = [
     title: 'Salesforce Business Analyst'
   },
   {
-      name: "University of Michigan",
-      description: ['• Backend development of web app to facilitate audio calls via VIOP, matching visitors at different museums to foster art-based connections',
-      '• Worked hand-in-hand with UX designers throughout front end development and usability testing, assisting in translating design into implementation'],
-      title: 'Web Developer'
+    name: "University of Michigan",
+    description: ['• Backend development of web app to facilitate audio calls via VIOP, matching visitors at different museums to foster art-based connections',
+    '• Worked hand-in-hand with UX designers throughout front end development and usability testing, assisting in translating design into implementation'],
+    title: 'Web Developer'
   },
   {
-    name: "Domino's Pizza",
-    description: ['• Develop and execute a test plan for a cloud-based payment processing service, outlining test scenarios and automating API testing with Java/Maven/Cucumber',
-  '• Execute functional and regression testing of dominos.com in different environments–creating test cases for new features, identifying bugs, and helping facilitate the release of new national offers and campaigns',
-  '• Work with fellow QA engineers to develop an automated regression test suite for an internal web application utilizing Webdriver.io, reducing the amount of required manual testing '],
-    title: 'Web QA Engineer'
-  },
+    name: "Quicken Loans",
+    description: ['• Built endpoint in Loan Origination .NET Core API to expose banker’s IDs to other systems',
+    '• Team based development of an Angular based web tool for managing schemas used in the document ingestion process, allowing scalability for banker’s accepting client’s document'],
+    title: 'Software Engineer Intern'
+},
   {
     name: "University of Michigan",
     description: ['• Backend development of a call volume dashboard using AWS and Google Sheets APIs',

@@ -3,28 +3,25 @@ import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
-import { CssBaseline, createTheme, ThemeProvider } from "@mui/material";
+import { CssBaseline } from "@mui/material";
 import React from 'react';
-import useMediaQuery from '@mui/material/useMediaQuery';
+import createEmotionCache from '../utility/createEmotionCache';
+import { CacheProvider } from '@emotion/react';
+import {
+  Experimental_CssVarsProvider as CssVarsProvider,
+} from '@mui/material/styles';
+const clientSideEmotionCache = createEmotionCache();
 
+const CharlesRose = (props) => {
+  const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
 
-function CharlesRose({ Component, pageProps }) {
-  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
-
-  const theme = React.useMemo(
-    () =>
-      createTheme({
-        palette: {
-          mode: prefersDarkMode ? 'dark' : 'light',
-        },
-      }),
-    [prefersDarkMode],
-  );
   return (
-  <ThemeProvider theme={theme}>
+    <CacheProvider value={emotionCache}>
+  <CssVarsProvider defaultMode='system'>
   <CssBaseline />
   <Component {...pageProps} />
-  </ThemeProvider>
+  </CssVarsProvider>
+  </CacheProvider>
   )
 }
 
